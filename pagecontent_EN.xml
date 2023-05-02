@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<main>
+  <tableofcontent>Detailed Table of Contents</tableofcontent>
+  <MainBookName>Programming with Arduino</MainBookName>
+  
+  <Topics>       
+    <Content id="1" HeaderContant="6._Programming with Arduino...................."><![CDATA[n]]></Content>
+    <Path><![CDATA[]]></Path>
+  </Topics>
+
+  <Topics>
+    <Content HeaderContant=""><![CDATA[6.1._Introduction]]></Content>
+    <Path><![CDATA[page_1.html]]></Path>
+  </Topics> 
+
+  <Topics>
+    <Content HeaderContant=""><![CDATA[6.2._Features of Arduino]]></Content>
+    <Path><![CDATA[page_2.html]]></Path>
+  </Topics> 
+
+  <Topics>
+    <Content HeaderContant=""><![CDATA[6.3._Components of Arduino Board]]></Content>
+    <Path><![CDATA[page_3.html]]></Path>
+  </Topics> 
+
+  <Topics>
+    <Content HeaderContant=""><![CDATA[6.4._Arduino IDE]]></Content>
+    <Path><![CDATA[page_4.html]]></Path>
+  </Topics> 
+
+<Topics>
+  <Content HeaderContant=""><![CDATA[6.5._Program Elements]]></Content>
+    <Path><![CDATA[page_5.html]]></Path>
+  <SubTopics>
+    <Content HeaderContant=""><![CDATA[6.5.1_Program Structure]]></Content>
+    <Path><![CDATA[page_5.html]]></Path>
+  </SubTopics>
+  <SubTopics>
+    <Content HeaderContant=""><![CDATA[6.5.2_Variables]]></Content>
+    <Path><![CDATA[page_5.html]]></Path>
+  </SubTopics>
+  <SubTopics>
+    <Content HeaderContant=""><![CDATA[6.5.3_Data Types]]></Content>
+    <Path><![CDATA[page_5.html]]></Path>
+  </SubTopics>
+  <SubTopics>
+    <Content HeaderContant=""><![CDATA[6.5.4_Operators]]></Content>
+    <Path><![CDATA[page_5.html]]></Path>
+  </SubTopics>
+  <SubTopics>
+    <Content HeaderContant=""><![CDATA[6.5.5_Decision Making]]></Content>
+    <Path><![CDATA[page_5.html]]></Path>
+  </SubTopics>
+  <SubTopics>
+    <Content HeaderContant=""><![CDATA[6.5.6_Loops]]></Content>
+    <Path><![CDATA[page_5.html]]></Path>
+  </SubTopics>
+  <SubTopics>
+    <Content HeaderContant=""><![CDATA[6.5.7_Functions]]></Content>
+    <Path><![CDATA[page_5.html]]></Path>
+  </SubTopics>
+  <SubTopics>
+    <Content HeaderContant=""><![CDATA[6.5.8_Arrays]]></Content>
+    <Path><![CDATA[page_5.html]]></Path>
+  </SubTopics>
+  <SubTopics>
+    <Content HeaderContant=""><![CDATA[6.5.9_String Objects]]></Content>
+    <Path><![CDATA[page_5.html]]></Path>
+  </SubTopics>
+  <SubTopics>
+    <Content HeaderContant=""><![CDATA[6.5.10_Time]]></Content>
+    <Path><![CDATA[page_5.html]]></Path>
+  </SubTopics>
+</Topics>
+
+<Topics>
+  <Content HeaderContant=""><![CDATA[6.6 Function Libraries]]></Content>
+  <Path><![CDATA[page_6.html]]></Path>
+  <SubTopics>
+    <Content HeaderContant=""><![CDATA[6.6.1 Input-Output Functions]]></Content>
+    <Path><![CDATA[page_6.html]]></Path>
+  </SubTopics>
+  <SubTopics>
+    <Content HeaderContant=""><![CDATA[6.6.2 Character Functions]]></Content>
+    <Path><![CDATA[page_6.html]]></Path>
+  </SubTopics>
+  <SubTopics>
+    <Content HeaderContant=""><![CDATA[6.6.3 Math Library]]></Content>
+    <Path><![CDATA[page_6.html]]></Path>
+  </SubTopics>
+</Topics>
+
+  <Topics>
+    <Content HeaderContant=""><![CDATA[6.7._Random Numbers]]></Content>
+    <Path><![CDATA[page_7.html]]></Path>
+  </Topics> 
+
+  <Topics>
+    <Content HeaderContant=""><![CDATA[6.8._Interrupts]]></Content>
+    <Path><![CDATA[page_8.html]]></Path>
+  </Topics> 
+
+  <Topics>
+  <Content HeaderContant=""><![CDATA[6.9 Case Studies]]></Content>
+  <Path><![CDATA[page_9.html]]></Path>
+  <SubTopics>
+    <Content HeaderContant=""><![CDATA[6.9.1 Traffic Control System]]></Content>
+    <Path><![CDATA[page_9.html]]></Path>
+  </SubTopics>
+  <SubTopics>
+    <Content HeaderContant=""><![CDATA[6.9.2 DHT Sensor with Arduino]]></Content>
+    <Path><![CDATA[page_9.html]]></Path>
+  </SubTopics>
+  <SubTopics>
+    <Content HeaderContant=""><![CDATA[6.9.3 Servo Motor Interfaced with Arduino]]></Content>
+    <Path><![CDATA[page_9.html]]></Path>
+  </SubTopics>
+</Topics>
+
+
+  <Topics>
+    <Content HeaderContant=""><![CDATA[6.10._Conclusion]]></Content>
+    <Path><![CDATA[page_10.html]]></Path>
+  </Topics> 
+
+
+
+</main>

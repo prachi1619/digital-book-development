@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<main>
+  <PageData>
+
+	<MainHeading><![CDATA[	<b>Program Elements</b>]]></MainHeading>
+
+    <PageText>
+      <pText><![CDATA[This section explains various program elements or components
+       like structure of an Arduino sketch, variables, data types, operators,
+       decision making, loops, functions, string objects and arrays.]]></pText>
+    </PageText>
+
+	<MainHeading><![CDATA[ <b>Program Structure</b>]]></MainHeading>
+
+    <PageText>
+      <pText><![CDATA[Arduino programs can be divided in three main parts: 
+      Structure,Values (variables and constants) and Functions. Let us start with the Structure. Values and Functions will be discussed in the coming sections. Structure consist 
+      of two main functions – setup () function and loop () function.]]></pText>
+    </PageText>
+
+    <PageText>
+      <pText><![CDATA[<b>setup () function </b>- The setup() function is called when a sketch starts. It is used to initialize the variables, pin modes, start using libraries, etc. The setup () function will only run once, after each power up or reset of the Arduino board.]]></pText>
+    </PageText>
+
+    <PageText>
+      <pText><![CDATA[<b>loop () function </b>- After creating a setup() function, which initializes and sets the initial values, the loop() function allows our program to iteratively do the specified task in the program. This is used to actively control the Arduino board.]]></pText>
+    </PageText>
+
+	<MainHeading><![CDATA[    <b>Variables</b>]]></MainHeading>
+
+    <PageText>
+      <pText><![CDATA[A variable is a value that can change, depending on conditions or on information passed to the program. Arduino uses C programming language. Variables use a property called scope. A scope is a region of the program and there are three places where variables can be declared.
+    They are]]>
+      </pText>
+    </PageText>
+
+    <PageText>
+      <pText><![CDATA[
+      <ol class="LowerAlphaClass">
+        <li> Variables declared inside a function or a block is called <b>local variables.</b></li>
+        <li>Variables used in the definition of function parameters are called <b>formal parameters.</b></li>
+        <li>Variables declared outside of all functions are called <b>global variables.</b></li>
+      </ol>
+      ]]></pText> 
+    </PageText>
+
+    <PageText>
+      <pText><![CDATA[<b>Local Variables:</b> Variables that are declared inside a function or block are local variables. They can be used only by the statements that are inside that function or block of code. Local variables are not known to function outside.]]></pText>
+    </PageText>
+
+    <PageText>
+      <pText><![CDATA[<b>Global Variables:</b> Global variables are defined outside of all the functions, usually at the top of the program. The global variables will hold their value throughout the life-time of the program. A global variable can be accessed by any function. A global variable is available for use throughout the entire program after its declaration. Following program uses global and local variables.]]></pText>
+    </PageText>
+
+      <SubHeading><![CDATA[Program]]></SubHeading>
+      
+    <PageText>
+      <pText><![CDATA[
+    <pre><code>
+    float c = 0; Global variable declaration 
+    void setup () {
+                  }
+    void loop () {
+        int z; Local variable declaration 
+        z = 10;
+    }
+    </code></pre>
+    ]]></pText>
+    </PageText>
+
+    <MainHeading><![CDATA[    <b>Data types</b>]]></MainHeading>
+
+    <PageText>
+      <pText><![CDATA[Data types in C refer to an extensive system used for declaring variables or functions of different types. The type of a variable determines how much space it occupies in the storage and how the bit pattern stored is interpreted. The following data types are supported by Arduino programming.]]>
+      </pText>
+    </PageText>
+
+    <PageText>
+      <pText><![CDATA[
+      <ol class="DecimalNumberClass">
+        <li>void - The void keyword is used only in function declarations. It indicates that the function is expected to return no information to the function from which it was called.</li>
+        <li>boolean - Boolean holds one of two values, true or false. Each boolean variable occupies one byte of memory.</li>
+        <li>char - A data type that takes up one byte of memory that stores a character value. Character literals are written in single quotes like ‘c’. For multiple characters called strings we use double quotes: “ABC”.</li>
+        <li>unsigned char - unsigned char is an unsigned data type that occupies one byte of memory. The unsigned char data type encodes numbers from 0 to 255.</li>
+        <li>byte - A byte stores an 8-bit unsigned number from 0 to 255.</li>
+        <li>int - Integers are the primary data-type for number storage. int stores a 16-bit (2- byte) value. This yields a range of -32,768 to 32,767 (minimum value of -2^15 and a maximum value of (2^15) - 1). The int size varies from board to board.</li>
+        <li>unsigned ints (unsigned integers) - They are the same as int in the way that they store a 2 byte value. Instead of storing negative numbers they only store positive values, yielding a useful range of 0 to 65,535 (2^16) - 1).</li>
+        <li>word - On the Uno and other ATMEGA based boards, a word stores a 16-bit unsigned number.</li>
+        <li>long - Long variables are extended size variables for number storage and store 32 bits (4 bytes) from -2,147,483,648 to 2,147,483,647.</li>
+        <li>unsigned long - unsigned long variables are extended size variables for number storage and store 32 bits (4 bytes). Unlike standard longs, unsigned longs will not store negative numbers, making their range from 0 to 4,294,967,295 (2^32 - 1).</li>
+        <li>short - A short is a 16-bit data-type. On all Arduinos a short stores a 16-bit (2-byte) value.</li>
+        <li>float - Data type for floating-point number is a number that has a decimal point. Floating-point numbers can be as large as 3.4028235E+38 and as low as 3.4028235E+38. They can store 32 bits (4 bytes) of information.</li>
+        <li>double - On the Uno and other ATMEGA based boards, double precision floating- point number occupies four bytes. That is, the double implementation is exactly the same as the float, with no gain in precision.</li>
+      </ol>
+      ]]></pText> 
+    </PageText>
+
+     <MainHeading><![CDATA[    <b>operators</b>]]></MainHeading>
+
+    <PageText>
+      <pText><![CDATA[An operator is a symbol that tells the compiler to perform specific mathematical or logical functions. Arduino supports following types of operators.]]>
+      </pText>
+    </PageText>
+
+    <PageText>
+      <pText><![CDATA[<b>Arithmetic Operators :</b> addition (+), subtraction (-), multiplication (*), division (/), modulus(%) and assignment(=).]]>
+      </pText>
+    </PageText>
+
+    <PageText>
+      <pText><![CDATA[<b>Comparison Operators: </b>Logical equal to (==), not equal to (!=), less than (<), less than or equal to (<=), greater than ( >) 
+      and greater than or equal to (>=).]]>
+      </pText>
+    </PageText>
+
+    <PageText>
+      <pText><![CDATA[<b>Boolean Operators	:</b> Logical AND (&&), Logical OR (||) and Logical NOT(!)]]>
+      </pText>
+    </PageText>
+
+    <PageText>
+      <pText><![CDATA[<b>Bitwise Operators	:</b> Bitwise AND (&), Bitwise OR (|), Bitwise Exclusive OR (^), Bitwise NOT (~), Bitwise Left Shift (<<) and Bitwise
+      Right Shift (>>)]]>
+      </pText>
+    </PageText>
+
+    <PageText>
+      <pText><![CDATA[<b>Compound Operators :</b> Increment (++), Decrement (– –) and Shorthand (+=, –=, *=, /=, %=,|=, &=)]]>
+      </pText>
+    </PageText>
+
+    <MainHeading><![CDATA[    <b>Decision Making</b>]]></MainHeading>
+
+    <PageText>
+      <pText><![CDATA[Decision making structures specify one or more conditions to be evaluated or tested by the program. It should be along with a statement or 
+      statements to be executed if the condition is determined is true and optionally other statements to be executed if the condition is false. Following are the
+      decision making statements supported by Arduino.]]>
+      </pText>
+    </PageText>
+
+    <PageText>
+      <pText><![CDATA[
+          <ol class="LowerAlphaClass">
+
+          <li><b>if statement:</b>It takes an expression in parenthesis and a statement or block of statements. If the expression is true then 
+          the statement or block of statements gets executed otherwise these statements are skipped. Following is the syntax of if statement.<br/>
+          <pre><code>
+          if (expression) {
+          block of statements;
+          }
+          </code></pre>
+          <SubHeading><![CDATA[<b>Example Program</b>]]</SubHeading>
+          <pre><code>
+          int a = 5;
+          void setup () {
+          }
+          void loop () {
+            /* check the boolean condition */
+            if (a>0) /* if condition is true then execute the following statement*/ 
+            a++;
+          </code></pre>    
+          </li>
+
+          <li><b>if ..else statement:</b>An if statement can be followed by an optional else statement, which executes when the expression is false. 
+          Following is the syntax of if..else statement.<br/>
+          <pre><code>
+          if (expression) {
+          block of statements;
+          }
+          else {
+          block of statements;
+          }
+          </code></pre>
+          <SubHeading><![CDATA[<b>Example Program</b>]]</SubHeading>
+          <pre><code>
+          int a = 5;
+          void setup () {
+          }
+          void loop () {
+          /* check the boolean condition */
+          if (a>0) /* if condition is true then execute the following statement*/ a++;
+          else	/* else condition is true then execute the following statement*/ a--;
+          </code></pre>    
+          </li>
+
+          <li><b>if..else..if..else statement: </b>The if statement can be followed by an optional else if...else statement,
+           which is very useful to test various conditions using single if...else if statement. The syntax is as follows.<br/>
+          <pre><code>
+          if (expression_1) { block of statements;
+          }
+          else if(expression_2) { block of statements;
+          }
+          else if(expression_n) { block of statements;
+          }
+          else {
+          block of statements;
+          }
+          </code></pre>
+          <SubHeading><![CDATA[<b>Example Program</b>]]</SubHeading>
+          <pre><code>
+          int a = 5;
+          void setup () {
+          }
+          void loop () {
+          /* check the boolean condition */
+          if (a>0) /* if condition is true then execute the following statement*/ a++;
+          else if(a<0)/* else if condition is true then execute the following statement*/
+          a--;
+          else /* else condition is true then execute the following statement*/ a=0;
+          </code></pre>    
+          </li>
+
+          <li><b>switch…case statement</b>- switch...case controls the flow of programs by allowing the programmers to specify different codes 
+          that should be executed in various conditions. In particular, a switch statement compares the value of a variable to the values specified in 
+          the case statements. When a case statement is found whose value matches that of the variable, the code in that case statement is run. The break 
+          keyword makes the switch statement exit and is typically used at the end of each case. Without a break statement, the switch statement will continue 
+          executing the following expressions until a break or the end of the switch statement is reached. Following is the syntax of switch statement.<br/>
+          <pre><code>
+          switch (variable) { case label:
+          // statements break;
+          }
+          case label: {
+          // statements break;
+          }
+          default: {
+          // statements break;
+          }
+          </code></pre>
+          <SubHeading><![CDATA[<b>Example Program</b>]]</SubHeading>
+          <pre><code>
+          switch(phase) {
+          case 0: Lo(); 
+          break; 
+          case 1: Mid();
+          break; 
+          case 2: Hi(); 
+          break;
+          default: Message(“Invalid state!”);
+          }
+          </code></pre>    
+          </li>
+
+          <li><b>Conditional operator? : </b>This is the only ternary operator in C. Syntax of the conditional operator is as follows.<br/>
+          expression1? expression2: expression3<br/>          
+          Here expression1 is evaluated first. If its value is true, then expression2 is evaluated and expression3 is ignored. If expression1 is 
+          evaluated as false, then expression3 evaluates and expression2 is ignored. The result will be a value of either expression2 or expression3 
+          depending upon which of them evaluates as true. Conditional operator associates from right to left.
+          <SubHeading><![CDATA[<b>Example Program</b>]]</SubHeading>
+          <pre><code>
+          /* Find max(a, b): */ 
+          max = ( a > b ) ? a : b;
+          </code></pre>    
+          </li>
+
+          </ol>
+      ]]></pText> 
+    </PageText>
+
+    <MainHeading><![CDATA[    <b>Loops</b>]]></MainHeading>
+
+    <PageText>
+      <pText><![CDATA[A loop statement allows executing a statement or group of statements multiple times. Following are the loops supported by Arduino.]]>
+      </pText>
+    </PageText>
+
+    <PageText>
+      <pText><![CDATA[
+          <ol class="LowerAlphaClass">
+
+          <li><b>for loop </b>- Following is the syntax of for loop.<br/>
+          <pre><code>
+          for(initialization; termination condition; increment or decrement) {
+          // statement block}
+          </code></pre>
+          <SubHeading><![CDATA[<b>Example Program</b>]]</SubHeading>
+          <pre><code>
+          for(i=1;i<=10;i++) {
+          //statements block will executed 10 times}
+          </code></pre>    
+          </li>
+
+          <li><b>while loop</b>- while loops will iterate continuously and infinitely, until the expression inside the parenthesis () becomes false. The syntax of while loop is as follows.<br/>
+          <pre><code>
+          while(expression) 
+              { block of statements;}
+          </code></pre>
+          <SubHeading><![CDATA[<b>Example Program</b>]]</SubHeading>
+          <pre><code>
+          n=10; 
+          i=1;
+          while(i<=n) {
+          i++ //statements block will executed 10 times
+          }
+          </code></pre>    
+          </li>
+
+          <li><b>do..while loop </b>- The do…while loop is similar to the while loop. In the while loop, the loop-continuation condition is tested at the beginning of the loop 
+          before performed the body of the loop. The do…while statement tests the loop-continuation condition after performed the loop body. Therefore, the loop body will be 
+          executed at least once. Syntax of do..while is given below.<br/>
+          <pre><code>
+          do {
+          block of statements;
+          }
+          while (expression);
+          </code></pre>
+          <SubHeading><![CDATA[<b>Example Program</b>]]</SubHeading>
+          <pre><code>
+          n=10;
+           i=1;
+          do{
+          i++ //statements block will executed 10 times
+          } while(i<=n);
+          </code></pre>    
+          </li>
+
+          <li><b>nested loop </b>– Arduino supports to use one loop inside another loop. The following shows the syntax of nested loop.<br/>
+          <pre><code>
+          switch (variable) { case label:
+          for ( initialize ;control; increment or decrement) {
+          // statement block
+          for ( initialize ;control; increment or decrement) {
+          // statement block
+          }
+          }
+          </code></pre>
+          <SubHeading><![CDATA[<b>Example Program</b>]]</SubHeading>
+          <pre><code>
+          for(i=1;i<=10;i++) {
+          //statements block will executed 10 times for(j=0;j<=99;j++) {
+          //statements block will executed 100 times
+          }
+          }
+          </code></pre>    
+          </li>
+
+          <li><b>infinite loop</b>- It is the loop having no terminating condition, so the loop becomes infinite. Following is the syntax for infinite loop used with for, while and do…while loops.<br/>
+          <pre><code>
+          <b>Using for loop</b>
+          for (;;) {
+          // statement block
+          }
+          <b>Using while loop</b>
+          while(1) {
+          // statement block
+          }
+          <b>Using do…while loop</b>
+          do {
+          block of statements;
+          }
+          while(1);
+          </code></pre>    
+          </li>
+
+          </ol>
+      ]]></pText> 
+    </PageText>
+
+    <MainHeading><![CDATA[    <b>Functions</b>]]></MainHeading>
+
+    <PageText>
+      <pText><![CDATA[There are two required functions in an Arduino sketch or a program i.e. setup () and loop(). Other functions must be created outside the brackets of these two functions.
+      The most common syntax to define a function is as follows.<br/>
+      <pre><code>
+      return_type function_name (argument1, argument2….argumentn)
+      {
+      statements;
+      }
+      </code></pre> 
+      ]]>
+      </pText>
+    </PageText>
+
+    <MainHeading><![CDATA[    <b>Function Declaration</b>]]></MainHeading>
+
+    <PageText>
+      <pText><![CDATA[A function is declared outside any other functions, above or below the loop function. We can declare the function in two different ways.
+      The first method just declares the function above the loop function. The following example shows the demonstration of the function declaration using the first method.<br/> 
+        <SubHeading><![CDATA[<b>Example Program</b>]]</SubHeading>
+        <pre><code>
+        int sum(int x, int y) // function declaration { int z = 0;
+        z = x+y ;
+        return z; // return the value
+        }
+        void setup () {
+        statements // group of statements
+        }
+        void loop () {
+        int result = 0;
+        result = sum(2,3); // function call
+        }
+        </code></pre>  
+      ]]>
+      </pText>
+    </PageText>
+
+    <PageText>
+      <pText><![CDATA[The second method is just writing the part of the function called a function prototype above the loop function. Function prototype must be followed by a semicolon ( ; ). 
+      Function definition is done below the loop function. The function body consists of function return type, function name and function argument type.<br/>
+      
+      <SubHeading><![CDATA[<b>Example Program</b>]]</SubHeading>
+      <pre><code>
+      int sum(int,int ); // function prototype void setup () {
+      statements // group of statements
+      }
+      void loop () {
+      int result = 0;
+      result = sum(2,3); // function call
+      }
+
+      int sum(int x,int y) // function declaration { int z = 0;
+      z = x+y ;
+      return z; // return the value
+      }
+      </code></pre>  
+      ]]>
+      </pText>
+    </PageText>
+  
+    <MainHeading><![CDATA[    <b>Arrays/b>]]></MainHeading>
+
+    <PageText>
+      <pText><![CDATA[An array is a consecutive group of memory locations that are of the same type. To refer to a particular location or element in the array,
+      we specify the name of the array and the position number of the particular element in the array. Arrays occupy space in memory. The index of an array starts from 0. 
+      An array can be declared of the form as given below.<br/> 
+      <pre><code>
+      type arrayName [arraySize];
+      </code></pre>  
+      ]]>
+      </pText>
+    </PageText>
+
+    <PageText>
+      <pText><![CDATA[    The arraySize must be an integer constant greater than zero. For example, to tell the compiler to reserve 10 elements for integer array we use the following declaration.<br/> 
+      <pre><code>
+      int c[10]; // c is an array of 10 integers
+      </code></pre>  
+      ]]>
+      </pText>
+    </PageText>
+
+    <PageText>
+      <pText><![CDATA[    We can declare an array as well as initialize it using the following forms<br/> 
+      <pre><code>
+      int a[]={1,2,3,4,5}
+      int b[5]={1,2,3}
+      </code></pre>  
+      ]]>
+      </pText>
+    </PageText>
+
+    <PageText>
+      <pText><![CDATA[    Multidimensional arrays are arrays with two dimensions (i.e., subscripts) often represent tables of values consisting of information arranged in rows and columns. 
+      To identify a particular array element, we must specify two subscripts. By convention, the first identifies the element’s row and the second identifies the element’s column. 
+      The basic syntax for declaring a multidimensional array is as follows.<br/> 
+      <pre><code>
+      type arrayName[rowSize][colSize];
+      </code></pre>  
+      ]]>
+      </pText>
+    </PageText>
+
+    <PageText>
+      <pText><![CDATA[    The rowSize and colSize must be an integer constant greater than zero. For example, to tell the compiler to reserve 25 elements for integer two dimensional array, 
+      we use the following declaration.<br/> 
+      <pre><code>
+      int c[5][5]; // c is a two-dimensional array of 25 integers
+      </code></pre>  
+      ]]>
+      </pText>
+    </PageText>
+
+    <PageText>
+      <pText><![CDATA[    A multidimensional array can be initialized in its declaration much like a one-dimensional array. For example, a two-dimensional array b with values 1 and 2 in its row 
+      0 elements and values 3 and 4 in its row 1 elements could be declared and initialized as follows.<br/> 
+      <pre><code>
+      int b[2][2] = {{1,2},{3,4}};
+      </code></pre>  
+      ]]>
+      </pText>
+    </PageText
+    >
+    <PageText>
+      <pText><![CDATA[    The values are grouped by row in braces. Therefore, 1 and 2 initialize b[0][0] and b[0][1], respectively and 3 and 4 initialize b[1][0] and b[1][1] respectively.]]></pText>
+    </PageText>
+
+        <MainHeading><![CDATA[    <b>	String Objects/b>]]></MainHeading>
+
+    <PageText>
+      <pText><![CDATA[Strings are used to store text. There are two types of strings in Arduino programming.]]></pText>
+    </PageText>
+
+    
+    <PageText>
+      <pText><![CDATA[
+      <ol class="LowerAlphaClass">
+        <li>Array of characters, which are the same as the strings used in C programming.</li>
+        <li>The Arduino String, which lets us use a string object in a sketch.</li>
+      </ol>
+      ]]></pText> 
+    </PageText>
+
+    <PageText>
+      <pText><![CDATA[    A string is a special array of characters that has one extra element at the end of the string, which always has the value of 0 (zero). 
+      This is known as a “null terminated string”. Example for declaration of array of characters is given below. The declaration of array of objects is as given below.<br/> 
+      <pre><code>
+      char s[]=”abcd”;
+      </code></pre>  
+      ]]>
+      </pText>
+    </PageText>
+
+    <PageText>
+      <pText><![CDATA[It can also be declared as follows.<br/> 
+      <pre><code>
+      char s[4]; s[0]=’a’;
+      s[1]=’b’;
+      s[2]=’c’;
+      s[3]=’d’;
+      </code></pre>  
+      ]]>
+      </pText>
+    </PageText>
+
+    <PageText>
+      <pText><![CDATA[A string object can be declared as follows. Here s is an object of class String.<br/> 
+      <pre><code>
+      String s=”abc”;
+      </code></pre>  
+      ]]>
+      </pText>
+    </PageText>
+    <PageText>
+      <pText><![CDATA[There are several built-in functions for String object. Some of them are given below.<br/>  
+      s.toUpperCase(): Changes all the characters of string s to uppercase. <br/> 
+      s.toLowerCase(): Changes all the characters of string s to lowercase.  <br/>  
+      s.length(): Returns the length of the string.<br/> 
+      s.replace(s1,s2): If s1 is the substring of s, it will be replaced by s2.
+      ]]>
+      </pText>
+    </PageText>
+
+        <MainHeading><![CDATA[    <b>Time/b>]]></MainHeading>
+
+    <PageText>
+      <pText><![CDATA[Arduino provides four different time manipulation functions. They are given below.]]></pText>
+    </PageText>
+
+        <PageText>
+      <pText><![CDATA[
+      <ol class="DecimalNumberClass">
+        <li><b>delay () function </b> - It accepts a single integer (or number) argument. This number represents the time (measured in milliseconds).</li>
+        <li><b>delayMicroseconds () function </b>- The delayMicroseconds() function accepts a single integer (or number) argument. There are a thousand microseconds 
+        in a millisecond, and a million microseconds in a second.</li>
+        <li><b>millis () function</b>- This function is used to return the number of milliseconds at the time the Arduino board begins running the current program.</li>
+        <li><b>micros () function </b>- The micros() function returns the number of microseconds from the time the Arduino board begins running the current program. 
+        This number overflows i.e. goes back to zero after approximately 70 minutes.</li>
+      </ol>
+      ]]></pText> 
+    </PageText>
+    
+  </PageData>
+</main>

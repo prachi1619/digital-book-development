@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<main>
+  <PageData>
+
+	<MainHeading><![CDATA[    <b>Function Libraries</b>]]></MainHeading>
+
+    <PageText>
+      <pText><![CDATA[There are several function libraries in Arduino that contains Input-Output functions, character functions,
+    math library and trigonometric functions. We will see one by one.]]></pText>
+    </PageText>
+
+	<MainHeading><![CDATA[    <b>Input-Output Functions</b>]]></MainHeading>
+
+    <PageText>
+      <pText><![CDATA[The pins on the Arduino board can be configured as either inputs or outputs using the pinMode() function. Arduino pins are by default configured 
+      as inputs, so they do not need to be explicitly declared as inputs with pinMode() when we are using them as inputs. Pins configured as INPUT are said to be in a 
+      high-impedance state. Pins configured as OUTPUT with pinMode() are said to be in a low-impedance state. The syntax of pinMode() function is as follows.<br/>
+        <pre><code>
+        void setup () {
+            pinMode(pin,mode);
+        }
+        </code></pre><br/>
+        where pin is the pin number on the Arduino board that we wish to set to a mode and mode can be either INPUT or OUTPUT.
+      ]]></pText>
+    </PageText>
+
+    <PageText>
+      <pText><![CDATA[<b>digitalWrite()</b> - Writes a HIGH or LOW value to a digital pin.]]></pText>
+    </PageText>
+    
+    <PageText>
+      <pText><![CDATA[<b>analogRead()</b>- Reads from the analog input pin i.e., voltage applied across the pin.]]></pText>
+    </PageText>
+
+        <SubHeading><![CDATA[Example Program for Blinking LED]]></SubHeading>
+
+        <SubHeading><![CDATA[Requirement]]></SubHeading>
+
+
+    <PageText>
+      <pText><![CDATA[
+      <ul class="ListClassDisc">
+        <li>Arduino controller board, USB connector, bread board, LED, 1.4 Kohm resistor, connecting wires, Arduino IDE.</li>
+      </ul>
+      ]]></pText> 
+    </PageText>
+
+        <SubHeading><![CDATA[Connection]]></SubHeading>
+
+    <PageText>
+      <pText><![CDATA[
+      <ul class="ListClassDisc">
+        <li>Connect the LED to the Arduino using the bread board and the connecting wires.</li>
+        <li>Connect the Arduino board to the PC using the USB connector.</li>
+        <li>Select the board type and port.</li>
+        <li>Write the sketch in the editor, verify and upload.</li>
+        <li>Connect the positive terminal of the LED to digital pin 12 and the negative terminal to the ground pin (GND) of Arduino board.</li>
+      </ul>
+      ]]></pText> 
+    </PageText>
+
+        <SubHeading><![CDATA[<b>Sketch</b>]]></SubHeading>
+
+    <PageText>
+      <pText><![CDATA[
+          <pre><code>
+          void setup(){
+        pinMode(12,OUTPUT); //Set the pin mode
+        }
+        void loop(){
+        digitalWrite(12, HIGH); // Turn on the LED 
+        delay(1000);
+        digitalWrite(12, LOW); //Turn of the LED 
+        delay(1000);
+        }
+        </code></pre>
+      ]]></pText> 
+    </PageText>
+
+        <SubHeading><![CDATA[<b>Explanation</b>]]></SubHeading>
+
+    <PageText>
+      <pText><![CDATA[Initially the pin mode is set as OUTPUT which is connected to the LED, pin 12 in this case. The digitalWrite() function is used to set the 
+      output as HIGH and LOW. The function delay() is used to specify the delay between HIGH-LOW transition of the output. The next procedure is to connect the 
+      board to the PC. Select the port and board type from Arduino IDE.Verify the code and upload. We can notice the TX-RV LED in the board starts flashing as
+      the code is uploaded.]]></pText>
+    </PageText>
+
+	<MainHeading><![CDATA[    <b>Character Functions</b>]]></MainHeading>
+
+    <PageText>
+      <pText><![CDATA[All data is entered into computers as characters, which includes letters, digits and various special symbols. The character-handling library
+    includes several functions that perform useful tests and manipulations of character data. The following are the functions of the character- handling library.
+    When using functions from the character-handling library, it is necessary to include the <cctype> header.]]></pText>
+    </PageText>
+
+    <PageText>
+      <pText><![CDATA[
+      <ol class="DecimalNumberClass">
+        <li>int isdigit( int c ) - Returns 1 if c is a digit and 0 otherwise.</li>
+        <li>int isalpha( int c ) - Returns 1 if c is a letter and 0 otherwise.</li>
+        <li>int isalnum( int c ) - Returns 1 if c is a digit or a letter and 0 otherwise.</li>
+        <li>int isxdigit( int c ) - Returns 1 if c is a hexadecimal digit character and 0 otherwise.</li>
+        <li>int islower( int c ) - Returns 1 if c is a lowercase letter and 0 otherwise.</li>
+        <li>int isupper( int c ) - Returns 1 if c is an uppercase letter, 0 otherwise.</li>
+        <li>int isspace( int c ) - Returns 1 if c is a white-space character—newline (‘\n’), space
+        (‘ ‘), form feed (‘\f’), carriage return (‘\r’), horizontal tab (‘\t’), or vertical tab (‘\v’) and 0 otherwise. </li>
+
+    </ol>
+      ]]></pText> 
+    </PageText>
+
+    <PageText>
+      <pText><![CDATA[
+      <ol class="DecimalNumberClass">
+        <li>int iscntrl( int c ) - Returns 1 if c is a control character, such as newline (‘\n’), form feed (‘\f’), 
+        carriage return (‘\r’), horizontal tab (‘\t’), vertical tab (‘\v’), alert (‘\a’), or backspace (‘\b’)—and 0 otherwise.</li>
+        <li>int ispunct( int c ) - Returns 1 if c is a printing character other than a space, a digit, or a letter and 0 otherwise.</li>
+        <li>int isprint( int c ) - Returns 1 if c is a printing character including space (‘ ‘) and 0 otherwise.</li>
+        <li>int isgraph( int c ) - Returns 1 if c is a printing character other than space (‘ ‘) and 0 otherwise.</li>
+    </ol>
+      ]]></pText> 
+    </PageText>
+
+	<MainHeading><![CDATA[    <b>Math Library</b>]]></MainHeading>
+
+    <PageText>
+      <pText><![CDATA[We need to include the math.h header file for using mathematical functions. Following are the mathematical functions included in math library.]]></pText>
+    </PageText>
+
+    <PageText>
+      <pText><![CDATA[
+      <ul class="ListClassDisc">
+        <li>cos(double radian);</li>
+        <li>sin(double radian);</li>
+        <li>tan(double radian);</li>
+        <li>fabs(double val);</li>
+        <li>fmod(double val1, double val2);</li>
+        <li>exp(double val);</li>
+        <li>log(double val);</li>
+        <li>log10(double val);</li>
+        <li>square(double val);</li>
+        <li>pow(double base, double power);</li>
+      </ul>
+      ]]></pText> 
+    </PageText>
+
+    </PageData>
+</main>

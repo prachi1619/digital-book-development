@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<main>
+  <PageData>
+
+	<MainHeading><![CDATA[    <b>Case Studies</b>]]></MainHeading>
+
+    <PageText>
+      <pText><![CDATA[In this section, we will discuss some practical applications where Arduino board is used. Three case studies are explained - traffic control 
+      system, Digital Humidity and Temperature sensor used with Arduino and servo motor interfaced with Arduino.]]></pText>
+    </PageText>
+
+	<MainHeading><![CDATA[<b>Traffic Control System>/b>]]></MainHeading>
+    <SubHeading><![CDATA[<b>Requirement</b>]]></SubHeading>
+
+    <PageText>
+      <pText><![CDATA[Arduino board, 3 different color LEDs, 330 ohm resistors and jumper wires.]]></pText>
+    </PageText>
+
+    <SubHeading><![CDATA[<b>Connection</b>]]></SubHeading>
+
+    <PageText>
+      <pText><![CDATA[
+      <ul class="ListClassDisc">
+        <li>Connect the positive terminals of the LEDs to the respective digital Output pins in the board assigned in the code.</li>
+        <li>Connect the negative terminals of the LED to the ground.</li>
+      </ul>
+      ]]></pText> 
+    </PageText>
+
+    <SubHeading><![CDATA[<b>Sketch</b>]]></SubHeading>
+
+    <PageText>
+      <pText><![CDATA[
+          <pre><code>
+          // LED pins 
+          int r=2; 
+          int g=3; 
+          int y=4;
+          void setup()
+          { Serial.begin(9600); 
+          pinMode(r,OUTPUT);
+          pinMode(g,OUTPUT); 
+          pinMode(y,OUTPUT); 
+          digitalWrite(r,LOW); 
+          digitalWrite(g,LOW); 
+          digitalWrite(y,LOW);
+          }
+          void traffic()
+          {
+          digitalWrite(g,HIGH);
+          Serial.println(“Green LED:ON,GO”);
+          //delay of 5 seconds 
+          delay(5000); 
+          digitalWrite(g,LOW);
+          digitalWrite(y,HIGH);
+          Serial.println(“Green LED:OFF,Yellow LED:ON,WAIT) 
+          delay(5000);
+          digitalWrite(y,LOW); 
+          digitalWrite(r,HIGH);
+          Serial.println(“Yellow LED:OFF, Red LED ON,STOP”); 
+          delay(5000);
+          digitalWrite(r,LOW); 
+          Serial.println(“ALL OFF”);
+          }
+          void loop()
+          {
+          traffic(); 
+          delay(10000);
+          }
+          </code></pre>
+      ]]></pText> 
+    </PageText>
+
+    <SubHeading><![CDATA[<b>Explanation</b>]]></SubHeading>
+
+    <PageText>
+      <pText><![CDATA[Initially all the LEDs are turned off. The LEDs are turned on one at a time with a delay of 5 seconds. The message is displayed accordingly to the 
+      serial port using the function Serial. println().]]></pText>
+    </PageText>
+
+	<MainHeading><![CDATA[    <b>DHT Sensor with Arduino</b>]]></MainHeading>
+
+    <PageText>
+      <pText><![CDATA[In this section, we will discuss some practical applications where Arduino board is used. Three case studies are explained - traffic control 
+      system, Digital Humidity and Temperature sensor used with Arduino and servo motor interfaced with Arduino.]]></pText>
+    </PageText>
+
+    <PageText>
+      <pText><![CDATA[In this example, we will see the integration of sensors with Arduino board. Sensors as we know are electronic elements which sense the data.
+      It converts physical quantity/measurements into electrical signals. They can be analog or digital. In this example, we have used Digital Humidity and Temperature
+      sensor (DHT). This sensor has four pins:<br/>
+      PIN 1 - 3.3 v to 5v power supply<br/>
+      PIN 2 - data<br/>
+      PIN 3 - null<br/>
+      PIN 4 - Ground]]></pText>
+    </PageText>
+
+    <PageText>
+      <pText><![CDATA[Arduino supports a special library DHT for DHT11 and DHT22 sensors. This  provides function to read the temperature (dht.readTemperature()) and humidity
+      (dht. readHumidity()) values from the data pin.]]></pText>
+    </PageText>
+
+    <SubHeading><![CDATA[<b>Connection</b>]]></SubHeading>
+
+    <PageText>
+      <pText><![CDATA[
+      <ul class="ListClassDisc">
+        <li>Connect Pin 1 of the DHT to the 3.3v supply pin on the board.</li>
+        <li>Data pin (Pin 2) can be connected to any digital pin. Here it is 12.</li>
+        <li>Connect Pin 4 to the ground (GND) pin of the board.</li>
+      </ul>
+      ]]></pText> 
+    </PageText>
+
+    <SubHeading><![CDATA[<b>Sketch</b>]]></SubHeading>
+
+    <PageText>
+      <pText><![CDATA[We need to install the DHT sensor library. Go to Sketch →Include Library→ Manage Library. Search for DHT sensor. Select the “DHT sensor library” 
+      and install it.]]></pText>
+    </PageText>
+
+    <PageText>
+      <pText><![CDATA[
+          <pre><code>
+          #include<DHT.h>
+          DHT dht(8,DHT22);//Initialize DHT sensor 
+          float humidity;//Stores humidity value. 
+          float temperature;//Stores temperature. 
+          void setup()
+          {Serial.begin(9600); 
+          dht.begin();
+          }
+          void loop(){
+          //Read data from the sensor and store it to variables humidity and // 
+          temperature
+          humidity=dht.readHumidity(); 
+          temperature=dht.readTemperature;
+          //Print temperature and humidity values to serial monitor. 
+          Serial.print(“Humidity: “);
+          Serial.print(humidity); 
+          Serial.print(“%, Temperature: “); 
+          Serial.print(temperature); 
+          Serial.println(“Celsius”); 
+          delay(2000);//Delay of 2 seconds
+          </code></pre>
+      ]]></pText> 
+    </PageText>
+
+    <PageText>
+      <pText><![CDATA[Connect the board to the PC. Select the port and board type. Verify and upload the code.]]></pText>
+    </PageText>
+
+    <SubHeading><![CDATA[<b>Output</b>]]></SubHeading>
+
+    <PageText>
+      <pText><![CDATA[The readings are printed at a delay of 2 seconds as specified by the delay() function.]]></pText>
+    </PageText>
+
+	<MainHeading><![CDATA[    <b>Servo Motor Interfaced with Arduino>/b>]]></MainHeading>
+
+    <PageText>
+      <pText><![CDATA[In this section, we discuss the integration of actuators with Arduino board. In this example, we use a servo motor interfaced with Arduino. 
+      Actuators are mechanical or electromechanical device that converts energy into motion. It is mainly used to provide controlled motion to other components. 
+      The basic working principle of a motor is that it uses different combination of various mechanical structures like screws, ball bearings and gears to produce 
+      motion. There are various types of motor actuators like servo motor, stepper motor, hydraulic motor, solenoid, relays, AC motor etc.]]></pText>
+    </PageText>
+    
+    <PageText>
+      <pText><![CDATA[    Servo motor is a high precision motor which provides rotary motion 0 to 180 degree. There are 3 wires in the servo motor: black or darkest
+      is the Ground, red is the power supply and yellow is for signal pin. Arduino provides different library for different actuators. Servo library is the library 
+      containing functions to operate the servo motor. Following are some of the functions available with servo library.]]></pText>
+    </PageText>
+
+      <PageText>
+      <pText><![CDATA[
+          <ol class="LowerAlphaClass" start="4">
+          <li>Knob() - Control the position of a RC (hobby) servo motor with Arduino and a potentiometer.</li>
+
+          <li>Sweep() - Sweeps the shaft of a RC servo motor back and forth across 180 degrees.</li>
+
+          <li>write() - Writes a value to the servo, controlling the shaft accordingly. On a standard servo, this will set the angle of the shaft (in degrees),
+          moving the shaft to that orientation. On a continuous rotation servo, this will set the speed of the servo (with 0 being full-speed in one direction,
+          180 being full speed in the other, and a value near 90 being no movement). Below is the syntax of write().<br/>
+          servo.write(angle)<br/>
+          where servo is a variable of type Servo and angle is the value to write to the servo, from 0 to 180.</li>
+
+          <li>writeMicroseconds() - Writes a value in microseconds (uS) to the servo, controlling the shaft accordingly. On a standard servo, this will set the 
+          angle of the shaft. On standard servos a parameter value of 1000 is fully counter-clockwise, 2000 is fully clockwise, and 1500 is in the middle.
+          Following is the syntax.<br/>
+          servo.writeMicroseconds(uS)<br/>
+          where servo is a variable of type Servo and uS is the value of the parameter in microseconds (int)</li>
+
+          <li>read() - Read the current angle of the servo (the value passed to the last call to write()). Below is the syntax.<br/>
+          servo.read()<br/>
+          where servo is a variable of type Servo. The function returns the angle of the servo, from 0 to 180 degrees.</li>
+
+          <li>attach() - Attach the servo variable to a pin. Following is the syntax.<br/>
+          servo.attach(pin) servo.attach(pin, min, max)<br/>
+          where servo is a variable of type Servo, pin is the number of the pin that the servo is attached to and min (optional) is the pulse width, 
+          in microseconds, corresponding to the minimum (0-degree) angle on the servo (defaults to 544) and max (optional) is the pulse width in microseconds
+          corresponding to the maximum (180-degree) angle on the servo (defaults to 2400)</li>
+
+          <li>detach() - Detach the servo variable from its pin. Following is the syntax.<br/>
+          servo.detach()<br/>
+          where servo is a variable of type Servo.</li>
+
+          </ol>
+      ]]></pText> 
+    </PageText>
+
+    <SubHeading><![CDATA[<b>Connection</b>]]></SubHeading>
+
+    <PageText>
+      <pText><![CDATA[Connect the ground of the servo to the Ground of the Arduino board. Connect the power supply wire to the 5v pin of the board. 
+      Connect the signal wire to any digital output pin. Here we have used pin 8.]]></pText> 
+    </PageText>
+
+    <SubHeading><![CDATA[<b>Sketch</b>]]></SubHeading>
+
+    <PageText>
+      <pText><![CDATA[
+          <pre><code>
+          #include<Servo.h>
+          //Including the servo library for the program 
+          int servoPin=12;
+          Servo ServoDemo;//Creating a servo object 
+          void setup(){
+          //The servo pin must be attached to the servo before it can be used. 
+          ServoDemo.attach(servoPin);
+          }
+          void loop(){
+          //servo moves to 0 degrees 
+          ServoDemo.Write(0); delay(1000);
+          //servo moves to 90 degrees 
+          ServoDemo.Write(90); delay(1000);
+          //servo moves to 180 degrees 
+          ServoDemo.Write(180); 
+          delay(1000);
+          }
+          </code></pre>
+      ]]></pText> 
+    </PageText>
+
+    <PageText>
+      <pText><![CDATA[    We have created an instance of the class Servo to use it in the sketch. The instance must be attached to the pin before being used in the code.
+      Write() function takes the degree value and rotates the motor accordingly. Connect the board to the PC. 
+      Select the port and board type. Verify and upload the code.]]></pText>
+    </PageText>
+
+    <SubHeading><![CDATA[<b>Output</b>]]></SubHeading>
+
+    <PageText>
+      <pText><![CDATA[The motor turns 0, 90 and 180 degrees with a delay of 1 second each.]]></pText>
+    </PageText>
+    </PageData>
+</main>
